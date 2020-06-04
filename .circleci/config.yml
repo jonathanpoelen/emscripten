@@ -520,7 +520,7 @@ jobs:
   build-upstream-windows:
     executor:
       name: win/vs2019
-      shell: bash.exe
+      shell: bash.exe -eo pipefail
     environment:
       # We need python installed before we can test anytyhing.
       # There seems to be undocument copy of python installed here. Hopefully
@@ -542,7 +542,7 @@ jobs:
       EMSDK_NOTTY: "1"
     executor:
       name: win/vs2019
-      shell: bash.exe
+      shell: bash.exe -eo pipefail
     steps:
       - run-tests:
           test_targets: "wasm2.test_ccall other.test_closure_externs other.test_binaryen_debug"
